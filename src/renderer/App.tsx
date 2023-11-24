@@ -1,7 +1,7 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { Button } from '@mui/material';
 import icon from '../../assets/icon.svg';
 import './App.css';
-import './global.css';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -20,12 +20,12 @@ function Hello() {
           target="_blank"
           rel="noreferrer"
         >
-          <button type="button" className="text-blue">
+          <Button type="button">
             <span role="img" aria-label="books">
               📚
             </span>
             Read our docs
-          </button>
+          </Button>
         </a>
         <a
           href="https://github.com/sponsors/electron-react-boilerplate"

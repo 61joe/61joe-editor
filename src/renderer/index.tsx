@@ -1,9 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import {
-  StyledEngineProvider,
-  ThemeProvider,
-  createTheme,
-} from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material';
 import App from './App';
 
 const rootElement = document.getElementById('root') as HTMLElement;
@@ -35,11 +31,9 @@ const theme = createTheme({
 });
 
 root.render(
-  <StyledEngineProvider injectFirst>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </StyledEngineProvider>,
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>,
 );
 
 // calling IPC exposed from preload script
