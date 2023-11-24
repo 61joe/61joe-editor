@@ -1,6 +1,11 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
 import icon from '../../assets/icon.svg';
 import './App.css';
+import './global.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function Hello() {
   return (
@@ -15,7 +20,7 @@ function Hello() {
           target="_blank"
           rel="noreferrer"
         >
-          <button type="button">
+          <button type="button" className="text-blue">
             <span role="img" aria-label="books">
               📚
             </span>
