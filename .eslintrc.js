@@ -19,6 +19,10 @@ module.exports = {
         namedComponents: 'arrow-function',
         unnamedComponents: 'arrow-function',
       },
+      {
+        namedComponents: 'function-declaration',
+        unnamedComponents: 'function-expression',
+      },
     ],
     'import/prefer-default-export': [
       'off',
