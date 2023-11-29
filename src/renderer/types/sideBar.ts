@@ -1,7 +1,7 @@
 import { IItem } from './common';
 
 // 侧边栏 菜单第一级
-export type SideBarItemParentKey = 'controlpanel' | 'create' | 'view' | 'bin';
+export type SideBarItemParentKey = 'controlpanel' | 'create' | 'view' | 'bin' | 'config' | 'help';
 
 // 侧边栏 菜单第二级
 export type ViewItemKey = 'folder' | 'documention' | 'note';
@@ -16,6 +16,7 @@ export interface ISideBarItem<T extends SiderBarItemKey = SiderBarItemKey>
   extends IItem<T> {
   icon: string;
   title?: string;
+  direction?: 'top' | 'bottom';
   showPrompt?: boolean;
   children?: Array<ISideBarItem>;
 }

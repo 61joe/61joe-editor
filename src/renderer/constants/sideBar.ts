@@ -1,4 +1,8 @@
-import { ISideBarItem, SideBarItemParentKey, ViewItemKey } from '../types/sideBar';
+import {
+  ISideBarItem,
+  SideBarItemParentKey,
+  ViewItemKey,
+} from '../types/sideBar';
 
 export const DEFAULT_SIDE_BAR_OPTIONS: Array<
   Readonly<ISideBarItem<SideBarItemParentKey>>
@@ -21,14 +25,27 @@ export const DEFAULT_SIDE_BAR_OPTIONS: Array<
     title: 'bin',
     icon: 'bin',
   },
+  {
+    key: 'help',
+    value: 'help',
+    title: 'help',
+    icon: 'help',
+    direction: 'bottom',
+  },
+  {
+    key: 'config',
+    value: 'config',
+    title: 'config',
+    icon: 'config',
+    direction: 'bottom',
+  },
 ];
 
-export const DEFAULT_VIEW_OPTIONS: Array<
-  Readonly<ISideBarItem<ViewItemKey>>
-> = [
-  {
-    key: 'documention',
-    value: 'documention',
-    icon: 'documention',
-  }
-];
+export const DEFAULT_VIEW_OPTIONS: Array<Readonly<ISideBarItem<ViewItemKey>>> =
+  [
+    {
+      key: 'documention',
+      value: 'documention',
+      icon: 'documention',
+    },
+  ];
