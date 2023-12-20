@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { GlobalLayout, MainLayout, ContentLayout } from './layout';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <GlobalLayout />,
