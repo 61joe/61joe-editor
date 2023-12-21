@@ -36,6 +36,12 @@ const configuration: webpack.Configuration = {
     },
   },
 
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../../src/'),
+    },
+  },
+
   module: {
     rules: [
       {

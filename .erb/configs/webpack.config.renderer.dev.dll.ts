@@ -43,6 +43,12 @@ const configuration: webpack.Configuration = {
     },
   },
 
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '../../src/'),
+    },
+  },
+
   plugins: [
     new webpack.DllPlugin({
       path: path.join(dist, '[name].json'),
