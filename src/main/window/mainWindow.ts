@@ -5,13 +5,7 @@ import MenuBuilder from '../menu';
 import AppUpdater from '../utils/updater';
 import { rootDir } from '../../../config';
 
-let mainWindow: BrowserWindow | null = null;
-
 const createMainWindow = async () => {
-  if (mainWindow) {
-    return mainWindow;
-  }
-
   const RESOURCES_PATH = app.isPackaged
     ? path.join(process.resourcesPath, 'assets')
     : path.join(process.cwd(), './assets');
@@ -20,7 +14,7 @@ const createMainWindow = async () => {
     return path.join(RESOURCES_PATH, ...paths);
   };
 
-  mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728,
@@ -45,10 +39,6 @@ const createMainWindow = async () => {
     }
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
-
   const menuBuilder = new MenuBuilder(mainWindow);
   menuBuilder.buildMenu();
 
@@ -61,8 +51,8 @@ const createMainWindow = async () => {
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
   new AppUpdater();
-};
 
-export { mainWindow };
+  return mainWindow;
+};
 
 export default createMainWindow;
