@@ -15,7 +15,11 @@
     "noImplicitThis": true,
     "strictNullChecks": true,
     "allowJs": true,
-    "outDir": ".erb/dll"
+    "outDir": ".erb/dll",
+    "baseUrl": "./src",
+    "paths": {
+      "@pages/*": ["renderer/pages/*"]
+    }
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
 }
