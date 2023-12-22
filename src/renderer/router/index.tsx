@@ -1,6 +1,8 @@
-import * as React from 'react';
 import { createBrowserRouter, createHashRouter } from 'react-router-dom';
 import { GlobalLayout, MainLayout, ContentLayout } from './layout';
+import loadable from '@loadable/component';
+
+const LoginPage = loadable(() => import('@pages/Login'));
 
 const router = createHashRouter([
   {
@@ -18,6 +20,10 @@ const router = createHashRouter([
         ],
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <LoginPage />,
   },
 ]);
 
