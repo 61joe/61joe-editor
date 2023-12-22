@@ -15,8 +15,8 @@ const createLoginWindow = async () => {
 
   const loginWindow = new BrowserWindow({
     show: false,
-    width: 256,
-    height: 512,
+    width: 768,
+    height: 768,
     resizable: false,
     icon: getAssetPath('icon.png'),
     webPreferences: {
