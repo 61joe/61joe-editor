@@ -11,6 +11,7 @@
 import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { isDebug, isProduction } from './utils';
 import createMainWindow from './window/mainWindow';
+import WindowManager from './utils/WindowManager';
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -52,17 +53,28 @@ app.on('window-all-closed', () => {
   }
 });
 
+// 获取单实例锁
+const gotLock = app.requestSingleInstanceLock();
+
+if (!gotLock) {
+  app.quit();
+} else {
+  app.on('second-instance', (e, cli, workingDirectory, data) => {
+    console.log('second-instance', data);
+  });
+}
+
 app
   .whenReady()
   .then(async () => {
     if (isDebug) {
       await installExtensions();
     }
-    createMainWindow();
+    WindowManager.createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
       // dock icon is clicked and there are no other windows open.
-      createMainWindow();
+      WindowManager.createWindow();
     });
   })
   .catch(console.log);

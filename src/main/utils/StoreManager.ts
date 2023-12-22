@@ -33,15 +33,11 @@ const store = new Store(schema);
 class StoreManager {
   private _store: Store = store;
 
-  // public get store() {
-  //   return store;
-  // }
-
   public get(key: string) {
     return this._store.get(key, null);
   }
 
-  public set(key: string, value: any): boolean {
+  public set<T>(key: string, value: T): boolean {
     try {
       this._store.set(key, value);
     } catch (err) {
