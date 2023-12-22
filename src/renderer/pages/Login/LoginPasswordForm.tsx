@@ -1,16 +1,25 @@
 import {
+  Button,
   FormControl,
   FormHelperText,
   Input,
   InputLabel,
-  styled,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import { LOGIN_FORM_WIDTH } from 'renderer/constants/form';
 
-const StyledForm = styled(({ children }: { children?: React.ReactNode }) => (
-  <form>{children}</form>
-))`
-  width: 500px;
+const StyledForm = styled(
+  ({
+    children,
+    className,
+  }: {
+    children?: React.ReactNode;
+    className?: string;
+  }) => <form className={className}>{children}</form>,
+)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const LoginPasswordFrom = () => {
@@ -36,6 +45,13 @@ const LoginPasswordFrom = () => {
         <Input type="password" />
         <FormHelperText>We'll never share your password.</FormHelperText>
       </FormControl>
+      <Button
+        sx={{
+          width: LOGIN_FORM_WIDTH,
+        }}
+      >
+        login
+      </Button>
     </StyledForm>
   );
 };
