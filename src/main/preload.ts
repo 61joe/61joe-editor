@@ -1,15 +1,16 @@
 // Disable no-unused-vars, broken for spread args
 /* eslint no-unused-vars: off */
 import { contextBridge, ipcRenderer, IpcRendererEvent } from 'electron';
+import { IElectronIpcHandler } from 'types';
 
-export type Channels = 'ipc-example';
+// export type Channels = 'ipc-example';
 
-const electronHandler = {
+const electronHandler: IElectronIpcHandler = {
   ipcRenderer: {
-    sendMessage(channel: Channels, ...args: unknown[]) {
+    send(channel, ...args: unknown[]) {
       ipcRenderer.send(channel, ...args);
     },
-    on(channel: Channels, func: (...args: unknown[]) => void) {
+    on(channel, func: (...args: unknown[]) => void) {
       const subscription = (_event: IpcRendererEvent, ...args: unknown[]) =>
         func(...args);
       ipcRenderer.on(channel, subscription);
@@ -18,12 +19,26 @@ const electronHandler = {
         ipcRenderer.removeListener(channel, subscription);
       };
     },
-    once(channel: Channels, func: (...args: unknown[]) => void) {
+    once(channel, func: (...args: unknown[]) => void) {
       ipcRenderer.once(channel, (_event, ...args) => func(...args));
+    },
+    invoke(channel, ...args: unknown[]) {
+      return ipcRenderer.invoke(channel, ...args);
+    },
+  },
+
+  ipcRendererApi: {
+    getAuth: () => {
+      return electronHandler.ipcRenderer.invoke('renderer-get-auth');
+    },
+    onUpdateAuth: (cb) => {
+      electronHandler.ipcRenderer.on('main-update-auth', (_, value) =>
+        cb(value),
+      );
     },
   },
 };
 
 contextBridge.exposeInMainWorld('electron', electronHandler);
 
-export type ElectronHandler = typeof electronHandler;
+// export type ElectronHandler = typeof electronHandler;

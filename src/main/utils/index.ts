@@ -11,3 +11,10 @@ export const getAccessToken = () => {
 
   return lastLoginAuth ? lastLoginAuth.accessToken : '';
 };
+
+export const getLastLoginAuth = () => {
+  const auths = StoreManager.getAuths();
+  const lastLoginAuth = auths?.find((auth) => auth.isLastLogin);
+
+  return lastLoginAuth;
+};
