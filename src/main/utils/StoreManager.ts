@@ -1,7 +1,7 @@
 import Store from 'electron-store';
 import fs from 'fs';
 import path from 'path';
-import { UserAuthItemType } from './types/auth';
+import { UserAuthItemType } from '@type/auth';
 
 type OnChangeCallBackType<T = any> = (newValue?: T, oldValue?: T) => void;
 

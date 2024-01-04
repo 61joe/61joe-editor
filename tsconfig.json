@@ -19,7 +19,8 @@
     "baseUrl": "./src",
     "paths": {
       "@pages/*": ["renderer/pages/*"],
-      "@public/*": ["renderer/public/*"]
+      "@public/*": ["renderer/public/*"],
+      "@type/*": ["types/*"]
     }
   },
   "exclude": ["test", "release/build", "release/app/dist", ".erb/dll"]
