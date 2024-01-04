@@ -12,6 +12,7 @@ import { app, BrowserWindow, shell, ipcMain } from 'electron';
 import { isDebug, isProduction } from './utils';
 import createMainWindow from './window/mainWindow';
 import WindowManager from './utils/WindowManager';
+import initialIpcMain from './utils/ipcMain';
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
@@ -70,6 +71,9 @@ app
     if (isDebug) {
       await installExtensions();
     }
+
+    initialIpcMain();
+
     WindowManager.createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the

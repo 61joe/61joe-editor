@@ -1,3 +1,5 @@
+import { UserAuthItemType } from './auth';
+
 type AnyToVoidFunc = (value: any) => void;
 
 export interface IElectronIpcHandler<T extends string = ChannelType> {
@@ -13,7 +15,7 @@ interface IpcRenderer<T> {
 }
 
 interface IpcRendererApi {
-  getAuth: () => Promise<any>;
+  getAuth: () => Promise<Array<UserAuthItemType>>;
   onUpdateAuth: (cb: AnyToVoidFunc) => void;
 }
 

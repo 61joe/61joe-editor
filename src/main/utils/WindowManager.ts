@@ -1,9 +1,8 @@
 import { BrowserWindow } from 'electron';
 import createMainWindow from '../window/mainWindow';
 import createLoginWindow from '../window/loginWindow';
-import StoreManager from './StoreManager';
 import { getAuthALive } from '../request/auth';
-import { UserAuthItemType } from './types/auth';
+import { getLastLoginAuth } from '.';
 
 type WindowObject = BrowserWindow | null;
 
@@ -81,10 +80,15 @@ class WindowManager {
     const success = await getAuthALive();
 
     if (success) {
-      this.createMainWindow();
+      await this.createMainWindow();
     } else {
-      this.createLoginWindow();
+      await this.createLoginWindow();
     }
+
+    this._currentWindow?.webContents.send(
+      'main-update-auth',
+      getLastLoginAuth(),
+    );
 
     // this.createMainWindow();
   }
