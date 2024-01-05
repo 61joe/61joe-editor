@@ -110,6 +110,7 @@
     "electron-log": "^4.4.8",
     "electron-store": "^8.1.0",
     "electron-updater": "^6.1.4",
+    "immer": "^10.0.3",
     "postcss": "^8.4.31",
     "postcss-loader": "^7.3.3",
     "react": "^18.2.0",

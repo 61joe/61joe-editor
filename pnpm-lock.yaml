@@ -58,6 +58,7 @@ specifiers:
   file-loader: ^6.2.0
   html-webpack-plugin: ^5.5.3
   identity-obj-proxy: ^3.0.0
+  immer: ^10.0.3
   jest: ^29.7.0
   jest-environment-jsdom: ^29.7.0
   mini-css-extract-plugin: ^2.7.6
@@ -105,6 +106,7 @@ dependencies:
   electron-log: 4.4.8
   electron-store: 8.1.0
   electron-updater: 6.1.7
+  immer: 10.0.3
   postcss: 8.4.32
   postcss-loader: 7.3.3_0faedf54d1eefb706692b2fc52d7fd3d
   react: 18.2.0
@@ -113,7 +115,7 @@ dependencies:
   source-map-support: 0.5.21
   swr: 2.2.4_react@18.2.0
   tailwindcss: 3.4.0_ts-node@10.9.2
-  zustand: 4.4.7_821af9f67289fbf97147f1a98d74b01c
+  zustand: 4.4.7_495d6900d276638d9d5739a59595d5f7
 
 devDependencies:
   '@electron/notarize': 2.2.0
@@ -6983,6 +6985,10 @@ packages:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
     dev: true
 
+  /immer/10.0.3:
+    resolution: {integrity: sha512-pwupu3eWfouuaowscykeckFmVTpqbzW+rXFCX8rQLkZzM9ftBmU/++Ra+o+L27mz03zJTlyV4UUr+fdKNffo4A==}
+    dev: false
+
   /immutable/4.3.4:
     resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
     dev: true
@@ -11658,7 +11664,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /zustand/4.4.7_821af9f67289fbf97147f1a98d74b01c:
+  /zustand/4.4.7_495d6900d276638d9d5739a59595d5f7:
     resolution: {integrity: sha512-QFJWJMdlETcI69paJwhSMJz7PPWjVP8Sjhclxmxmxv/RYI7ZOvR5BHX+ktH0we9gTWQMxcne8q1OY8xxz604gw==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
@@ -11674,6 +11680,7 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.2.45
+      immer: 10.0.3
       react: 18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
